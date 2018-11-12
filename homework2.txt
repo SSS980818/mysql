@@ -1,0 +1,52 @@
+mysql> use student;
+Database changed
+
+mysql> create table movies(name varchar(20),year int(4),director varchar(10),grade int(5));
+Query OK, 0 rows affected (0.92 sec)
+
+mysql>  insert into movies(name,year,director,grade) values('wukong',1998,'song',8£©,('yanyuan',2017,'shuang',7),
+    -> ('duye',2018,'liu',9);
+Query OK, 3 rows affected (0.25 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from movies;
++---------+------+----------+-------+
+| name    | year | director | grade |
++---------+------+----------+-------+
+| wukong  | 1998 | song     |    8 |
+| yanyuan | 2017 | shuang   |    7 |
+| duye    | 2018 | liu      |    9 |
++---------+------+----------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select * from movies where name like '%duye%';
++------+------+----------+-------+
+| name | year | director | grade |
++------+------+----------+-------+
+| duye | 2018 | liu      |    9 |
++------+------+----------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from movies where director like '%song%';
++--------+------+----------+-------+
+| name   | year | director | grade |
++--------+------+----------+-------+
+| wukong | 1998 | song     |    8 |
++--------+------+----------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from movies where year like '%1998%';
++--------+------+----------+-------+
+| name   | year | director | grade |
++--------+------+----------+-------+
+| wukong | 1998 | song     |    8 |
++--------+------+----------+-------+
+1 row in set (0.00 sec)
+
+mysql> select name, max(grade) from movies;
++--------+------------+
+| name   | max(grade) |
++--------+------------+
+| wukong |         9 |
++--------+------------+
+1 row in set (0.12 sec)
